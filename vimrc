@@ -1,30 +1,21 @@
-"vundle setup
-set nocompatible
-filetype off
+" vim-plug setup
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'gmarik/Vundle.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'raimondi/delimitMate'
+Plug 'tomtom/tcomment_vim'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
 
-"vundle plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'kien/ctrlp.vim'
-" Plugin 'itchyny/lightline.vim'
-" Plugin 'bling/vim-bufferline'
-Plugin 'vim-airline/vim-airline'
-Plugin 'raimondi/delimitMate'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'elzr/vim-json'
+" themes
+Plug 'crusoexia/vim-monokai'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-scripts/pyte'
 
-"themes
-Plugin 'crusoexia/vim-monokai'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'vim-scripts/pyte'
-
-call vundle#end()
-filetype plugin indent on
-filetype plugin on
+call plug#end()
 
 "set wildmode= type of completion see help.
 set wildmenu "menu for auto-completion of commands
