@@ -1,7 +1,6 @@
 " vim-plug setup
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/Vundle.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
