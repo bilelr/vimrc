@@ -23,6 +23,7 @@ set gdefault "replace all occurrences in line by default
 set relativenumber
 set numberwidth=1
 
+set linespace=10 "wider space between lines
 set nobackup
 set noswapfile
 set shiftwidth=4 tabstop=4 expandtab
@@ -36,7 +37,8 @@ set smartcase
 set hlsearch
 set background=light
 
-set guifont=Droid\ Sans\ Mono\ 12
+set guifont=Consolas\ 13
+" set guifont=Droid\ Sans\ Mono\ 12
 " set guifont=DejaVu\ Sans\ Mono\ 10
 " colorscheme pyte
 colorscheme PaperColor
@@ -57,5 +59,5 @@ let g:monokai_gui_italic = 1
 " Custom mappings
 nnoremap <tab> <c-^>
 noremap <leader>o i<CR><ESC>
-noremap <c-a> <Esc>ggVG
-
+nnoremap <silent> <c-j> :bn<cr>
+nnoremap <silent> <c-k> :bp<cr>
