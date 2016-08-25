@@ -58,4 +58,5 @@ let g:monokai_gui_italic = 1
 nnoremap <tab> <c-^>
 noremap <leader>o i<CR><ESC>
 noremap <c-a> <Esc>ggVG
+nnoremap <leader>p :CtrlP %:p:h<CR>
 
