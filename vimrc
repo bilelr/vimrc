@@ -26,6 +26,7 @@ set numberwidth=1
 
 set linespace=5 "wider space between lines
 set nobackup
+set noundofile
 set noswapfile
 set shiftwidth=4 tabstop=4 expandtab
 autocmd FileType java setlocal shiftwidth=2 tabstop=2 expandtab
@@ -54,6 +55,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(class|exe|so|dll)$',
   \ }
+let g:ctrlp_max_files=0
 
 let delimitMate_expand_cr = 1
 au FileType xml,html,phtml,xhtml,js let b:delimitMate_matchpairs = "(:),[:],{:}"
