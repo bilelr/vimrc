@@ -1,9 +1,12 @@
 " vim-plug setup
+set encoding=utf-8
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'Yggdroot/indentLine'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
 Plug 'pangloss/vim-javascript'
@@ -43,7 +46,11 @@ set background=light
 if has("gui_gtk2")
     set guifont=Consolas\ 13
 elseif has("gui_win32")
-    set guifont=Consolas:h11
+    " set guifont=Consolas:h11
+    set guifont=Droid_Sans_Mono_for_Powerline:h11
+    " set guifont=Ubuntu_Mono_for_Powerline:h11
+    " set guifont=Anonymice_Powerline:h11
+    " set guifont=CONSOLA-Powerline:h11
 endif
 
 colorscheme PaperColor
@@ -62,6 +69,8 @@ au FileType xml,html,phtml,xhtml,js let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='papercolor'
 
 let g:monokai_gui_italic = 1
 
