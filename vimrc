@@ -9,6 +9,7 @@ Plug 'raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 
 " Typescript
@@ -17,9 +18,9 @@ Plug 'Quramy/tsuquyomi'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " themes
-Plug 'crusoexia/vim-monokai'
+" Plug 'crusoexia/vim-monokai'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'vim-scripts/pyte'
+" Plug 'vim-scripts/pyte'
 call plug#end()
 
 let mapleader = ","
@@ -53,8 +54,10 @@ set numberwidth=1
 
 " set linespace=10 "wider space between lines
 set nobackup
+set noundofile
 set noswapfile
 set shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+autocmd FileType java setlocal shiftwidth=2 tabstop=2 expandtab
 set autoindent
 set colorcolumn=80
 set lines=50 columns=83
@@ -71,29 +74,36 @@ set lazyredraw
 
 
 " Theme
+if has("gui_gtk2")
+    " set guifont=Consolas\ 13
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
+    " set guifont=Inconsolata\ for\ Powerline\ 13
+    " set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
+    " set guifont=Roboto\ Mono\ for\ Powerline\ 11
+    " set guifont=Space\ Mono\ for\ Powerline\ 10
+elseif has("gui_win32")
+    set guifont=Consolas:h11
+endif
 set list " Show invisible characters like tabs and eol
 nnoremap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬ " tab and eol symbols"
-
-" set guifont=Consolas\ 13
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
-" set guifont=Inconsolata\ for\ Powerline\ 13
-" set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
-" set guifont=Roboto\ Mono\ for\ Powerline\ 11
-" set guifont=Space\ Mono\ for\ Powerline\ 10
-" colorscheme pyte
-
 colorscheme PaperColor
+set laststatus=2 "Always show the status line
 " End of Theme
-
 
 "Plugin Options
 " delimitMate
 let delimitMate_expand_cr = 1
-" let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.js"
 au FileType xml,html,phtml,xhtml,js let b:delimitMate_matchpairs = "(:),[:],{:}"
 " CtrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(class|exe|so|dll)$',
+  \ }
+let g:ctrlp_max_files=0
 nmap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>p :CtrlP %:p:h<CR>
+nnoremap <leader>. :CtrlP .<CR>
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -102,7 +112,10 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16'
 
 " monokai
-let g:monokai_gui_italic = 1
+" let g:monokai_gui_italic = 1
+
+" json-vim
+let g:vim_json_syntax_conceal=0 " json-vim plugin - disable hiding quotes.
 " End of Plugin Options
 
 " Custom mappings
@@ -122,14 +135,12 @@ nnoremap <silent> <c-k> :bp<cr>
 nnoremap <leader><space> :noh<cr>
 
 " Match brackets using tab
-nnoremap <tab> %
-vnoremap <tab> %
-
-" Change regex search to standard perl/python one
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap <tab> %
+" vnoremap <tab> %
 
 " Disable F1 help key
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+nnoremap <tab> <c-^> " switch buffers by typing num followed by tab
