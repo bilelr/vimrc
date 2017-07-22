@@ -4,7 +4,7 @@ set encoding=utf-8
 call plug#begin('~/.vim/plugged')
 
 Plug 'Yggdroot/indentLine'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'raimondi/delimitMate'
@@ -17,9 +17,13 @@ Plug 'tpope/vim-fugitive'
 " Typescript
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
-" themes
+" Needed for tsuquyomi for vim version before 8
+if v:version < 800
+    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+endif
+
+" Themes
 " Plug 'crusoexia/vim-monokai'
 Plug 'NLKNguyen/papercolor-theme'
 " Plug 'vim-scripts/pyte'
